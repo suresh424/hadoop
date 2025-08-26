@@ -140,6 +140,9 @@ public class TestProtoBufRPCCompatibility {
     // Set RPC engine to protobuf RPC engine
     RPC.setProtocolEngine(conf, NewRpcService.class, ProtobufRpcEngine.class);
 
+    // Set system property for protobuf compatibility
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+
     // Create server side implementation
     NewServerImpl serverImpl = new NewServerImpl();
     BlockingService service = NewProtobufRpcProto

@@ -35,6 +35,11 @@ import com.google.protobuf.ByteString;
 
 public abstract class ProtoUtil {
 
+  static {
+    // Set the system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   /**
    * Read a variable length integer in the same format that ProtoBufs encodes.
    * @param in the input stream to read from
@@ -75,7 +80,6 @@ public abstract class ProtoUtil {
     return result;
   }
 
-  
   /** 
    * This method creates the connection context  using exactly the same logic
    * as the old connection context as was done for writable where

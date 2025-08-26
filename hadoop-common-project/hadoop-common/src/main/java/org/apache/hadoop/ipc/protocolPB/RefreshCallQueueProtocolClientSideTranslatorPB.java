@@ -43,6 +43,11 @@ public class RefreshCallQueueProtocolClientSideTranslatorPB implements
   VOID_REFRESH_CALL_QUEUE_REQUEST =
       RefreshCallQueueRequestProto.newBuilder().build();
 
+  static {
+    // Set system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   public RefreshCallQueueProtocolClientSideTranslatorPB(
       RefreshCallQueueProtocolPB rpcProxy) {
     this.rpcProxy = rpcProxy;

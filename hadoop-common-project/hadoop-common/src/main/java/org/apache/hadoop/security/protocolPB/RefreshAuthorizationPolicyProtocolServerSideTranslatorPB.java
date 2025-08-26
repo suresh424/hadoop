@@ -30,6 +30,10 @@ import com.google.protobuf.ServiceException;
 public class RefreshAuthorizationPolicyProtocolServerSideTranslatorPB implements
     RefreshAuthorizationPolicyProtocolPB {
 
+  static {
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   private final RefreshAuthorizationPolicyProtocol impl;
 
   private final static RefreshServiceAclResponseProto

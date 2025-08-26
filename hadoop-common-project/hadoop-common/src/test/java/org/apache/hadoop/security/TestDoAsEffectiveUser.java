@@ -67,6 +67,7 @@ public class TestDoAsEffectiveUser extends TestRpcBase {
         "RULE:[2:$1@$0](.*@HADOOP.APACHE.ORG)s/@.*//" +
         "RULE:[1:$1@$0](.*@HADOOP.APACHE.ORG)s/@.*//"
         + "DEFAULT");
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
   }
 
   @Before

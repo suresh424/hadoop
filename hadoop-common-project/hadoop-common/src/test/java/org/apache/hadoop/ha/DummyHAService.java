@@ -306,4 +306,7 @@ class DummyHAService extends HAServiceTarget {
     }
   }
 
+  static {
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
 }

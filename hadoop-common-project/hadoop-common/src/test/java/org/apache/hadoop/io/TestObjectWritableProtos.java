@@ -32,6 +32,11 @@ import com.google.protobuf.Message;
  */
 public class TestObjectWritableProtos {
 
+  static {
+    // Set system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   @Test
   public void testProtoBufs() throws IOException {
     doTest(1);

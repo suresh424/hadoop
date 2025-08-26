@@ -54,6 +54,11 @@ public class Token<T extends TokenIdentifier> implements Writable {
   private Text service;
   private TokenRenewer renewer;
 
+  static {
+    // Set the system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   /**
    * Construct a token given a token identifier and a secret manager for the
    * type of the token identifier.

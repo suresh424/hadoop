@@ -40,6 +40,11 @@ public class TraceAdminProtocolServerSideTranslatorPB
     implements TraceAdminProtocolPB, Closeable  {
   private final TraceAdminProtocol server;
 
+  static {
+    // Set system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   public TraceAdminProtocolServerSideTranslatorPB(TraceAdminProtocol server) {
     this.server = server;
   }

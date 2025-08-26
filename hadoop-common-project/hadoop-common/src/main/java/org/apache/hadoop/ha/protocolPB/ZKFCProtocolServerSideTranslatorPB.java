@@ -38,6 +38,10 @@ public class ZKFCProtocolServerSideTranslatorPB implements
     ZKFCProtocolPB {
   private final ZKFCProtocol server;
   
+  static {
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+  
   public ZKFCProtocolServerSideTranslatorPB(ZKFCProtocol server) {
     this.server = server;
   }

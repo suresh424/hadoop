@@ -40,6 +40,11 @@ public class TraceAdminProtocolTranslatorPB implements
     TraceAdminProtocol, ProtocolTranslator, Closeable  {
   private final TraceAdminProtocolPB rpcProxy;
 
+  static {
+    // Set the system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   public TraceAdminProtocolTranslatorPB(TraceAdminProtocolPB rpcProxy) {
     this.rpcProxy = rpcProxy;
   }

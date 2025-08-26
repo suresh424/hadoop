@@ -1835,4 +1835,9 @@ public class Client implements AutoCloseable {
       IOUtils.closeStream(in);
     }
   }
+
+  static {
+    // Set the system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
 }

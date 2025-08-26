@@ -35,6 +35,11 @@ import com.google.protobuf.ServiceException;
 public class ProtocolMetaInfoServerSideTranslatorPB implements
     ProtocolMetaInfoPB {
 
+  static {
+    // Temporary workaround for older generated code compatibility
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   RPC.Server server;
   
   public ProtocolMetaInfoServerSideTranslatorPB(RPC.Server server) {

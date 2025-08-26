@@ -59,6 +59,11 @@ import org.slf4j.LoggerFactory;
 @InterfaceAudience.Public
 @InterfaceStability.Evolving
 public class Credentials implements Writable {
+  static {
+    // Set system property for protobuf compatibility
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   public enum SerializedFormat {
     WRITABLE((byte) 0x00),
     PROTOBUF((byte) 0x01);

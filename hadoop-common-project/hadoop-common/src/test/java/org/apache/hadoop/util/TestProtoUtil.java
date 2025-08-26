@@ -37,6 +37,11 @@ import com.google.protobuf.CodedOutputStream;
 
 public class TestProtoUtil {
   
+  static {
+    // Set system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   /**
    * Values to test encoding as variable length integers
    */

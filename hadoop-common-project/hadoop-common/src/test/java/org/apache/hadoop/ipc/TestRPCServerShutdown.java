@@ -48,6 +48,7 @@ public class TestRPCServerShutdown extends TestRpcBase {
   @Before
   public void setup() {
     setupConf();
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
   }
 
   /**

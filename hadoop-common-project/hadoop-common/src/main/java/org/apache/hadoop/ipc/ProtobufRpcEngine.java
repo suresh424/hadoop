@@ -64,6 +64,8 @@ public class ProtobufRpcEngine implements RpcEngine {
     org.apache.hadoop.ipc.Server.registerProtocolEngine(
         RPC.RpcKind.RPC_PROTOCOL_BUFFER, RpcProtobufRequest.class,
         new Server.ProtoBufRpcInvoker());
+    // Set system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
   }
 
   private static final ClientCache CLIENTS = new ClientCache();

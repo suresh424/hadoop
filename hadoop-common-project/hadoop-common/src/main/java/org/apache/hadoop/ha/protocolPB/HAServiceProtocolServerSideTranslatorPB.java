@@ -64,6 +64,10 @@ public class HAServiceProtocolServerSideTranslatorPB implements
   private static final Logger LOG = LoggerFactory.getLogger(
       HAServiceProtocolServerSideTranslatorPB.class);
   
+  static {
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+  
   public HAServiceProtocolServerSideTranslatorPB(HAServiceProtocol server) {
     this.server = server;
   }

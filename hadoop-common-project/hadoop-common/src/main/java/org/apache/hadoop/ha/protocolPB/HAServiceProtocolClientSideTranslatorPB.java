@@ -63,6 +63,11 @@ public class HAServiceProtocolClientSideTranslatorPB implements
   
   private final HAServiceProtocolPB rpcProxy;
 
+  static {
+    // Temporary workaround for protobuf upgrade
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   public HAServiceProtocolClientSideTranslatorPB(InetSocketAddress addr,
       Configuration conf) throws IOException {
     RPC.setProtocolEngine(conf, HAServiceProtocolPB.class,

@@ -30,6 +30,11 @@ import com.google.protobuf.ServiceException;
 public class RefreshCallQueueProtocolServerSideTranslatorPB implements
     RefreshCallQueueProtocolPB {
 
+  static {
+    // Set system property to avoid runtime failures with older generated code
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   private final RefreshCallQueueProtocol impl;
 
   private final static RefreshCallQueueResponseProto

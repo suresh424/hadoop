@@ -56,6 +56,11 @@ public class RPCCallBenchmark extends TestRpcBase implements Tool {
   private static ThreadMXBean threadBean =
     ManagementFactory.getThreadMXBean();
   
+  static {
+    // Set the system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+  
   private static class MyOptions {
     private boolean failed = false;
     private int serverThreads = 0;

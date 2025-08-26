@@ -101,6 +101,11 @@ public class SaslRpcClient {
   private static final RpcSaslProto negotiateRequest =
       RpcSaslProto.newBuilder().setState(SaslState.NEGOTIATE).build();
 
+  static {
+    // Set system property for protobuf compatibility
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   /**
    * Create a SaslRpcClient that can be used by a RPC client to negotiate
    * SASL authentication with a RPC server
@@ -311,8 +316,8 @@ public class SaslRpcClient {
       Pattern pattern = GlobPattern.compile(serverKeyPattern);
       if (!pattern.matcher(serverPrincipal).matches()) {
         throw new IllegalArgumentException(String.format(
-            "Server has invalid Kerberos principal: %s,"
-                + " doesn't match the pattern: %s",
+            "Server has invalid Kerberos principal: %s," +
+                " doesn't match the pattern: %s",
             serverPrincipal, serverKeyPattern));
       }
     } else {

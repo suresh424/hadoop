@@ -30,6 +30,11 @@ import com.google.protobuf.ServiceException;
 public class GetUserMappingsProtocolServerSideTranslatorPB implements
     GetUserMappingsProtocolPB {
 
+  static {
+    // Set system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   private final GetUserMappingsProtocol impl;
 
   public GetUserMappingsProtocolServerSideTranslatorPB(

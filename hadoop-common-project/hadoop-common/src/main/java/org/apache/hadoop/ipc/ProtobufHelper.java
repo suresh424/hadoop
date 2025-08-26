@@ -28,6 +28,11 @@ import com.google.protobuf.ServiceException;
  */
 @InterfaceAudience.Private
 public class ProtobufHelper {
+  static {
+    // Set system property to avoid immediate runtime failures with older generated code
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   private ProtobufHelper() {
     // Hidden constructor for class with only static helper methods
   }

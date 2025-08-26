@@ -38,6 +38,11 @@ public class GetUserMappingsProtocolClientSideTranslatorPB implements
   private final static RpcController NULL_CONTROLLER = null;
   private final GetUserMappingsProtocolPB rpcProxy;
   
+  static {
+    // Set system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+  
   public GetUserMappingsProtocolClientSideTranslatorPB(
       GetUserMappingsProtocolPB rpcProxy) {
     this.rpcProxy = rpcProxy;

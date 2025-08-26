@@ -31,6 +31,11 @@ import com.google.protobuf.ServiceException;
 
 public class RefreshUserMappingsProtocolServerSideTranslatorPB implements RefreshUserMappingsProtocolPB {
 
+  static {
+    // Set system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   private final RefreshUserMappingsProtocol impl;
   
   private final static RefreshUserToGroupsMappingsResponseProto 

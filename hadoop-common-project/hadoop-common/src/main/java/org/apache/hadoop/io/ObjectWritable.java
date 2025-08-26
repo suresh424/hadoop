@@ -383,6 +383,7 @@ public class ObjectWritable implements Writable, Configurable {
   @Override
   public void setConf(Configuration conf) {
     this.conf = conf;
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
   }
 
   @Override

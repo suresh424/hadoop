@@ -45,6 +45,11 @@ public class GenericRefreshProtocolClientSideTranslatorPB implements
   private final static RpcController NULL_CONTROLLER = null;
   private final GenericRefreshProtocolPB rpcProxy;
 
+  static {
+    // Set the system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   public GenericRefreshProtocolClientSideTranslatorPB(
       GenericRefreshProtocolPB rpcProxy) {
     this.rpcProxy = rpcProxy;

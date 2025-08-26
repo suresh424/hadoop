@@ -44,6 +44,7 @@ public class TestProtoBufRpcServerHandoff {
 
   @Test(timeout = 20000)
   public void test() throws Exception {
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
     Configuration conf = new Configuration();
 
     TestProtoBufRpcServerHandoffServer serverImpl =

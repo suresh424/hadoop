@@ -39,6 +39,11 @@ public class TestRpcWritable {//extends TestRpcBase {
   static Message message2 =
       EchoRequestProto.newBuilder().setMessage("testing2").build();
 
+  static {
+    // Set the system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   @Test
   public void testWritableWrapper() throws IOException {
     // serial writable in byte buffer

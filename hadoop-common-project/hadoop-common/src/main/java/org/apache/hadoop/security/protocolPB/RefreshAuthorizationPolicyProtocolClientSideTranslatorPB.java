@@ -43,6 +43,11 @@ public class RefreshAuthorizationPolicyProtocolClientSideTranslatorPB implements
   VOID_REFRESH_SERVICE_ACL_REQUEST =
       RefreshServiceAclRequestProto.newBuilder().build();
 
+  static {
+    // Set system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   public RefreshAuthorizationPolicyProtocolClientSideTranslatorPB(
       RefreshAuthorizationPolicyProtocolPB rpcProxy) {
     this.rpcProxy = rpcProxy;

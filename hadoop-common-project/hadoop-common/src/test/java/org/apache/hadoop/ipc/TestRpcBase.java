@@ -68,6 +68,8 @@ public class TestRpcBase {
     // Set RPC engine to protobuf RPC engine
     RPC.setProtocolEngine(conf, TestRpcService.class, ProtobufRpcEngine.class);
     UserGroupInformation.setConfiguration(conf);
+    // Set system property for protobuf compatibility
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
   }
 
   protected static RPC.Builder newServerBuilder(

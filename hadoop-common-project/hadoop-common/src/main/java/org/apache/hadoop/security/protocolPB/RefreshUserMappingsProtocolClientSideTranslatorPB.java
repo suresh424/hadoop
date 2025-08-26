@@ -47,6 +47,11 @@ public class RefreshUserMappingsProtocolClientSideTranslatorPB implements
   VOID_REFRESH_SUPERUSER_GROUPS_CONFIGURATION_REQUEST = 
       RefreshSuperUserGroupsConfigurationRequestProto.newBuilder().build();
 
+  static {
+    // Temporary workaround for older generated code
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   public RefreshUserMappingsProtocolClientSideTranslatorPB(
       RefreshUserMappingsProtocolPB rpcProxy) {
     this.rpcProxy = rpcProxy;

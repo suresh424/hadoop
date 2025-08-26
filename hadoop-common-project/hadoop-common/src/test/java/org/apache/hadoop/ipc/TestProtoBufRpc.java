@@ -114,6 +114,9 @@ public class TestProtoBufRpc extends TestRpcBase {
     server.addProtocol(RPC.RpcKind.RPC_PROTOCOL_BUFFER, TestRpcService2.class,
         service2);
     server.start();
+
+    // Set system property for protobuf workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
   }
   
   

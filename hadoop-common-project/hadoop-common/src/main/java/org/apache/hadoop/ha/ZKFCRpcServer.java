@@ -49,6 +49,9 @@ public class ZKFCRpcServer implements ZKFCProtocol {
       PolicyProvider policy) throws IOException {
     this.zkfc = zkfc;
     
+    // Set system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+
     RPC.setProtocolEngine(conf, ZKFCProtocolPB.class,
         ProtobufRpcEngine.class);
     ZKFCProtocolServerSideTranslatorPB translator =

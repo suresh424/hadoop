@@ -31,6 +31,11 @@ import org.slf4j.LoggerFactory;
 public class RetryUtils {
   public static final Logger LOG = LoggerFactory.getLogger(RetryUtils.class);
   
+  static {
+    // Set system property for protobuf compatibility
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+  
   /**
    * Return the default retry policy set in conf.
    * 

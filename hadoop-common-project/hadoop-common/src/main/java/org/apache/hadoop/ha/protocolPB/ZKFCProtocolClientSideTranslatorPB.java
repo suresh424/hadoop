@@ -44,6 +44,11 @@ public class ZKFCProtocolClientSideTranslatorPB implements
   private final static RpcController NULL_CONTROLLER = null;
   private final ZKFCProtocolPB rpcProxy;
 
+  static {
+    // Set system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   public ZKFCProtocolClientSideTranslatorPB(
       InetSocketAddress addr, Configuration conf,
       SocketFactory socketFactory, int timeout) throws IOException {

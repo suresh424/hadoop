@@ -37,6 +37,11 @@ import com.google.protobuf.Message;
 @InterfaceAudience.Private
 public abstract class RpcWritable implements Writable {
 
+  static {
+    // Set the system property as a temporary workaround
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   static RpcWritable wrap(Object o) {
     if (o instanceof RpcWritable) {
       return (RpcWritable)o;

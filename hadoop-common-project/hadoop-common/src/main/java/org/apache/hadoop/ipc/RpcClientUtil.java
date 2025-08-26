@@ -41,6 +41,11 @@ import com.google.protobuf.ServiceException;
  * The cache is lazily populated. 
  */
 public class RpcClientUtil {
+  static {
+    // Temporary workaround for protobuf upgrade
+    System.setProperty("com.google.protobuf.use_unsafe_pre22_gencode", "true");
+  }
+
   private static RpcController NULL_CONTROLLER = null;
   private static final int PRIME = 16777619;
   
